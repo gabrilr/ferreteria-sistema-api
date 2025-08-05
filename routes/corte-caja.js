@@ -240,11 +240,11 @@ router.get('/resumen/today', async (req, res) => {
       ventasCompletadas: ventasCompletadas.length,
       ventasCanceladas: ventasCanceladas.length,
       totalVentas: ventasDelDia.length,
-      totalIngresos: parseFloat(totalIngresos.toFixed(2)),
-      totalCancelados: parseFloat(totalCancelados.toFixed(2)),
+      totalIngresos: parseFloat((Number(totalIngresos) || 0).toFixed(2)),
+      totalCancelados: parseFloat((Number(totalCancelados) || 0).toFixed(2)),
       productosVendidos,
-      promedioVenta: parseFloat(promedioVenta.toFixed(2)),
-      tasaExito: parseFloat(tasaExito.toFixed(1)),
+      promedioVenta: parseFloat((Number(promedioVenta) || 0).toFixed(2)),
+      tasaExito: parseFloat((Number(tasaExito) || 0).toFixed(1)),
       corteYaRealizado: corteExistente.length > 0,
       ventas: ventasDelDia
     };
